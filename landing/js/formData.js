@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const orderForm = document.querySelector('.form_order');
+  const orderForm = document.querySelectorAll('.form_order');
+  const query = new URLSearchParams(window.location.search);
   let clickid = '';
   let sub1Value = '';
 
@@ -8,13 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
     hiddenInput.type = 'hidden';
     hiddenInput.name = type;
     hiddenInput.value = value;
-    orderForm.prepend(hiddenInput);
+    orderForm.forEach(elem => {
+      let cloneInput = hiddenInput.cloneNode(true);
+      elem.prepend(cloneInput);
+    });
   }
 
-  // Эта строка для теста, ее нужно потом закомментировать или удалить
-  const init = window.location.pathname + '?prl=123&clickid=2d6111na0468nbdb&uclick=e2irslfe&uclickhash=e2irslfe-1na0468n-2twf-0-8wlp-pmbgbl-pmbgfe-1d664f';
+  // Эта строки для теста, их нужно потом закомментировать или удалить
+  // const init = window.location.pathname + '?prl=123&clickid=2d6111na0468nbdb&uclick=e2irslfe&uclickhash=e2irslfe-1na0468n-2twf-0-8wlp-pmbgbl-pmbgfe-1d664f';
+  // console.log(query.entries.length);
+  // for (let param of query.entries()) {
+  //     if (query.entries.length > 0) {
+  //     if (param[0] === 'clickid') {
+  //       clickid = param[1];
+  //     } 
+  //   }
+  // }
 
-  const query = new URLSearchParams(window.location.search);
   for (let param of query.entries()) {
     if (param[0] === 'clickid') {
       clickid = param[1];
