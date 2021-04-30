@@ -24,9 +24,6 @@ class PublisherApi
     private $country_code = '{COUNTRY_CODE}';
 
     /** @var string */
-    private $sub1;
-
-    /** @var string */
     private $name;
 
     /** @var string */
@@ -186,7 +183,6 @@ class PublisherApi
             'data3' => $this->data3,
             'data4' => $this->data4,
             'clickid' => $this->clickid,
-            'sub1' => $this->sub1,
             'fbclid' => $this->fbclid,
             'ip' => $this->getIp(),
             'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '',

@@ -8,7 +8,6 @@ $api->setProperty('api_key', 'P39U6sLGJ7IKColb');
 $api->setProperty('target_hash', 'q1Z3Nlw9');
 $api->setProperty('country_code', request('country_code'));
 $api->setProperty('clickid', request('clickid'));
-$api->setProperty('sub1', request('sub1'));
 $api->setPrice(3900);
 $api->setProperty('first_name', custom('first_name'));
 $api->setProperty('last_name', custom('last_name'));
