@@ -39,7 +39,9 @@ if (true) {
 
 $response = json_decode($response, true);
 
-if ($response['status'] !== 'success') {
+if ($response['status'] !== 'success' && $response['error_code'] === 'LEAD_DOUBLE') {
+    die(doublePage());
+} elseif ($response['status'] !== 'success') {
     die(var_dump($response));
 }
 
@@ -57,6 +59,15 @@ function showSuccessPage()
             array('name' => request('client'), 'phone' => $_POST['phone'],
             $data_params
         )))
+    );
+}
+
+function doublePage()
+{
+    $data_params = [];
+
+    header(
+        'Location: double.html'
     );
 }
 

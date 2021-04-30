@@ -351,59 +351,12 @@
       <div class="col-lg-1 col-md-1 col-sm-1"></div>
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
         <h2 class="success_page_main_title">Gracias por la orden!</h2>
-        <div class="success_page_top_message">Nuestro operador se pondrá en contacto con usted en un día laborable.</div>
-        <h3 class="success_page_bottom_message">Por favor, encienda su teléfono.</h3>
-        <div class="order_info_wrap">
-          <ul class="order_info_item_wrap">
-            <li class="order_info_item">
-              <span class="order_info_item_value">Nombre: </span>
-              <span id="name"></span>
-            </li>
-            <li class="order_info_item">
-              <span class="order_info_item_value">Teléfono: </span>
-              <span id="phone"></span>
-            </li>
-          </ul>
-        </div>
+        <h3 class="success_page_bottom_message">Ya ha dejado una solicitud antes. Espere a que el operador se comunique con usted.</h3>
       </div>
       <div class="col-lg-1 col-md-1 col-sm-1"></div>
     </div>
   </div>
 </div>
-<script>
-   function getUrlParam(param) {
-        var vars = {};
-        var href = decodeURI(window.location.href);
-        var answer_position = href.indexOf('?');
-        var hash_position = href.indexOf('#');
 
-        if (answer_position < 0 && hash_position > 0) {
-            href = href.replace('#', '?');
-            answer_position = hash_position;
-        }
-        if (answer_position > 0 && hash_position > 0) {
-            href = href.replace('#', '&');
-        }
-        var hashes = href.slice(answer_position + 1).split('&');
-				let firstSymbol = '';
-        for (var i = 0; i < hashes.length; i++) {
-            var part = hashes[i].split('=');
-						if (part[0] === 'phone') {
-							part[1] = decodeURI(part[1]);
-							if (/%/.test(part[1])) {
-								part[1] = part[1].replace('%', '+');
-								part[1] = part[1].replace('2B', '');
-								console.log(part[1]);
-							}
-						}
-            vars[part[0]] = part[1];
-        }
-
-        return vars[param] || null;
-    }
-
-   document.getElementById('name').innerText = getUrlParam('name') || '';
-   document.getElementById('phone').innerText = getUrlParam('phone') || '';
-</script>
 </body>
 </html>
