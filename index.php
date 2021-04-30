@@ -1,8 +1,5 @@
 <?php
 
-$use_base = true;
-if (file_exists('transit/index.php')) {
-    include("transit/index.php");
-} else {
-    include("landing/index.php");
-}
+$site = file_get_contents('template.html', true);
+
+echo $site;
