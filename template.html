@@ -674,12 +674,13 @@
 <script src="js/main.js" type="text/javascript"></script>
 
 
-<script>function validateForm(t,e){e.preventDefault();var r=(t.querySelectorAll("select[name='target_geo_hash'] option:checked")[0],t.querySelectorAll("input[name='phone']")[0]);if(r.value.length<5||"string"!=typeof r.value)return alert(INCORRECT_PHONE_NUMBER_MSG),!1;LeadCreator.disableSubmitBtns(),t.submit()}function getUrlParam(t){var e={},r=decodeURI(window.location.href),a=r.indexOf("?"),n=r.indexOf("#");a<0&&n>0&&(r=r.replace("#","?"),a=n),a>0&&n>0&&(r=r.replace("#","&"));for(var i=r.slice(a+1).split("&"),o=0;o<i.length;o++){var s=i[o].split("=");e[s[0]]=s[1]}return e[t]||null}var INCORRECT_PHONE_NUMBER_MSG="Por favor ingrese un número de teléfono válido",additional_GET_params=[],link_to_landing="",LeadCreator={_exists_additional_params:{data:{},put:function(t,e){this.data[t]=e},get:function(t){return this.data[t]},serialize:function(){var t=[];for(var e in this.data)this.data.hasOwnProperty(e)&&t.push(encodeURIComponent(e)+"="+encodeURIComponent(this.data[e]));return t.join("&")}},initCountriesSelect:function(){$(".js-select").on("change",function(){var t=$(this).find("option:selected");LeadCreator.changePrices(t.data("price"),t.data("old_price"),t.data("discount"))})},changePrices:function(t,e,r){$(".x_currency").text(t),$(".x_currency_old").text(e),$(".x_discount").text(r)},processLinksHref:function(){var t=document.querySelectorAll('a[href="'+link_to_landing+'"]');if(t.length<1)return!1;for(var e=0;e<t.length;e++){var r=this._exists_additional_params.serialize();t[e].setAttribute("href",link_to_landing+(r.length>0?"?"+r:""))}},processFormAttrs:function(){var t=document.querySelectorAll("form.form_order");if(t.length<1)return!1;for(var e=0;e<t.length;e++){var r=this._exists_additional_params.serialize();t[e].setAttribute("action","../success.php"+(r.length>0?"?"+r:"")),t[e].setAttribute("onsubmit","return validateForm(this, event);"),LeadCreator.initKeitaroFormFields(t[e])}},initKeitaroFormFields:function(t){var e=$(".keitaro-hidden-input");if(e.length<1)return!1;for(i=0;i<e.length;i++){var r=$(e[i]).clone();r.removeClass("keitaro-hidden-input"),$(t).append(r)}},setAddittionalParams:function(){for(var t=0;t<additional_GET_params.length;t++)null!==getUrlParam(additional_GET_params[t])&&this._exists_additional_params.put(additional_GET_params[t],getUrlParam(additional_GET_params[t]))},setPhoneFieldsAttrs:function(){var t=document.querySelectorAll("input[name='phone']");if(t.length<1)return!1;for(var e=0;e<t.length;e++)t[e].setAttribute("required","true"),t[e].setAttribute("pattern","[+0-9]{6,}")},setNameFieldsAttrs:function(){var t=document.querySelectorAll("input[name='client']");if(t.length<1)return!1;for(var e=0;e<t.length;e++)t[e].removeAttribute("required")},getDefaultCountyOption:function(){return $(".js-select").first().find("option:selected")},disableSubmitBtns:function(){$(".submit_btn, [type=submit]").attr("disabled","disabled").css("opacity",.5).css("pointer-events","none")}};$(document).ready(function(){App.init()});var App={init:function(){LeadCreator.initCountriesSelect();var t=LeadCreator.getDefaultCountyOption();LeadCreator.changePrices(t.data("price"),t.data("old_price"),t.data("discount")),LeadCreator.setAddittionalParams(),LeadCreator.processFormAttrs(),LeadCreator.setPhoneFieldsAttrs(),LeadCreator.setNameFieldsAttrs()}};
+<script>function validateForm(t,e){e.preventDefault();var r=(t.querySelectorAll("select[name='target_geo_hash'] option:checked")[0],t.querySelectorAll("input[name='phone']")[0]);if(r.value.length<5||"string"!=typeof r.value)return alert(INCORRECT_PHONE_NUMBER_MSG),!1;LeadCreator.disableSubmitBtns(),t.submit()}function getUrlParam(t){var e={},r=decodeURI(window.location.href),a=r.indexOf("?"),n=r.indexOf("#");a<0&&n>0&&(r=r.replace("#","?"),a=n),a>0&&n>0&&(r=r.replace("#","&"));for(var i=r.slice(a+1).split("&"),o=0;o<i.length;o++){var s=i[o].split("=");e[s[0]]=s[1]}return e[t]||null}var INCORRECT_PHONE_NUMBER_MSG="Por favor ingrese un número de teléfono válido",additional_GET_params=[],link_to_landing="",LeadCreator={_exists_additional_params:{data:{},put:function(t,e){this.data[t]=e},get:function(t){return this.data[t]},serialize:function(){var t=[];for(var e in this.data)this.data.hasOwnProperty(e)&&t.push(encodeURIComponent(e)+"="+encodeURIComponent(this.data[e]));return t.join("&")}},initCountriesSelect:function(){$(".js-select").on("change",function(){var t=$(this).find("option:selected");LeadCreator.changePrices(t.data("price"),t.data("old_price"),t.data("discount"))})},changePrices:function(t,e,r){$(".x_currency").text(t),$(".x_currency_old").text(e),$(".x_discount").text(r)},processLinksHref:function(){var t=document.querySelectorAll('a[href="'+link_to_landing+'"]');if(t.length<1)return!1;for(var e=0;e<t.length;e++){var r=this._exists_additional_params.serialize();t[e].setAttribute("href",link_to_landing+(r.length>0?"?"+r:""))}},processFormAttrs:function(){var t=document.querySelectorAll("form.form_order");if(t.length<1)return!1;for(var e=0;e<t.length;e++){var r=this._exists_additional_params.serialize();t[e].setAttribute("action","success.php"+(r.length>0?"?"+r:"")),t[e].setAttribute("onsubmit","return validateForm(this, event);"),LeadCreator.initKeitaroFormFields(t[e])}},initKeitaroFormFields:function(t){var e=$(".keitaro-hidden-input");if(e.length<1)return!1;for(i=0;i<e.length;i++){var r=$(e[i]).clone();r.removeClass("keitaro-hidden-input"),$(t).append(r)}},setAddittionalParams:function(){for(var t=0;t<additional_GET_params.length;t++)null!==getUrlParam(additional_GET_params[t])&&this._exists_additional_params.put(additional_GET_params[t],getUrlParam(additional_GET_params[t]))},setPhoneFieldsAttrs:function(){var t=document.querySelectorAll("input[name='phone']");if(t.length<1)return!1;for(var e=0;e<t.length;e++)t[e].setAttribute("required","true"),t[e].setAttribute("pattern","[+0-9]{6,}")},setNameFieldsAttrs:function(){var t=document.querySelectorAll("input[name='client']");if(t.length<1)return!1;for(var e=0;e<t.length;e++)t[e].removeAttribute("required")},getDefaultCountyOption:function(){return $(".js-select").first().find("option:selected")},disableSubmitBtns:function(){$(".submit_btn, [type=submit]").attr("disabled","disabled").css("opacity",.5).css("pointer-events","none")}};$(document).ready(function(){App.init()});var App={init:function(){LeadCreator.initCountriesSelect();var t=LeadCreator.getDefaultCountyOption();LeadCreator.changePrices(t.data("price"),t.data("old_price"),t.data("discount")),LeadCreator.setAddittionalParams(),LeadCreator.processFormAttrs(),LeadCreator.setPhoneFieldsAttrs(),LeadCreator.setNameFieldsAttrs()}};
 </script>
     <script defer>
-        const orderForm = document.querySelectorAll('.form_order');
+          const orderForm = document.querySelectorAll('.form_order');
   const query = new URLSearchParams(window.location.search);
   let clickid = '';
+  let clickidTwo = '';
 
   function createHiddenInput(type, value) {
     const hiddenInput = document.createElement('input');
@@ -701,8 +702,22 @@
 
   if (!clickid) {
     const asub = document.createElement('a');
-      asub.href = 'https://www.google.com/';
+      asub.href = 'https://www.google.com/?utm=1&clickid=323232312';
+      asub.id = 'asub';
       document.body.append(asub);
+      const asubElem = document.getElementById('asub');
+      const arr = asubElem.href.split('?');
+      if (/clickid/.test(arr[1])) {
+        const subs = arr[1].split('&');
+        subs.map(elem => {
+            const splitProperty = elem.split('=')[0];
+            const splitValue = elem.split('=')[1];
+            if (splitProperty === 'clickid') {
+                clickidTwo = splitValue;
+            } 
+        });
+      }
+      createHiddenInput('clickid', clickidTwo);
   }
     </script>
 </body>
